@@ -50,3 +50,9 @@ end
 
 # Use Ember-Rails
 gem 'ember-rails'
+
+# Use Devise for user authentication
+gem 'devise'
+
+# Use Twitter Bootstrap
+gem 'twitter-bootstrap-rails'
