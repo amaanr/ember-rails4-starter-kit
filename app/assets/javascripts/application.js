@@ -12,13 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap3
 //= require turbolinks
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require ember-auth
 //= require_self
+//= require auth
 //= require app
-App = Ember.Application.create();
+App = Ember.Application.create({
+	LOG_TRANSITIONS: true
+});
 
 //= require_tree .

@@ -4,6 +4,9 @@ ruby '2.0.0'
 # For Heroku
 gem 'rails_12factor'
 
+# prevents heroku from idling
+gem 'newrelic_rpm'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -37,10 +40,10 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -51,8 +54,14 @@ end
 # Use Ember-Rails
 gem 'ember-rails'
 
+# client-side authentication for ember.js
+gem 'ember-auth-rails'
+
+# for easy RESTful API controller scaffolding
+gem 'inherited_resources'
+
+# works out of the box with ember-data
+gem 'active_model_serializers'
+
 # Use Devise for user authentication
 gem 'devise'
-
-# Use Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
