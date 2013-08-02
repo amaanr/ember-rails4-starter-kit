@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap3
 //= require turbolinks
 //= require handlebars
 //= require ember
