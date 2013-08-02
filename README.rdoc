@@ -1,28 +1,13 @@
-== README
+# ember-rails4-starter-kit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Dependency Status](https://gemnasium.com/heartsentwined/ember-auth-rails-demo.png)](https://gemnasium.com/heartsentwined/ember-auth-rails-demo)
 
-Things you may want to cover:
+This starter kit was intended to bootstrap user authentication using Ember.js Devise. It will create an app using rails4 + devise + ember-auth + ember.js + bootstrap3.
+The demo can be seen live at [heroku](http://emberrails4starterkit.herokuapp.com/),
+and the code lives in this repository itself.
 
-* Ruby version
+You can use the following credentials to sign in at the heroku app:
+* email: `foo@example.com`, password: `foopassword`
+* email: `bar@example.com`, password: `barpassword`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This starter kit is an extension of [hearsentwined's demo](https://github.com/heartsentwined/ember-auth-rails-demo).
