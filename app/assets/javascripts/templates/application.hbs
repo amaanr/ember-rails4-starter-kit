@@ -1,11 +1,19 @@
 <div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a href="#" class="brand">Starter Kit</a>
-			<ul class="nav pull-right">
-				<li class="btn btn-primary">Log in</li>
-			</ul>
-		</div>
+	<div class="container" style="width:auto;">
+		<a class="navbar-brand" href="#">Starter Kit</a>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		<ul class="nav navbar-nav pull-right">
+			{{#if App.Auth.signedIn}}
+				{{render 'auth/sign-out'}}
+			{{else}}
+				<button type="button" class="btn btn-default navbar-btn">Log in</button>
+				<button type="button" class="btn btn-primary navbar-btn">Register</button>
+			{{/if}}
+		</ul>	
 	</div>
 </div>	
 
