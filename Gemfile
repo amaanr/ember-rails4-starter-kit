@@ -65,6 +65,3 @@ gem 'active_model_serializers'
 
 # Use Devise for user authentication
 gem 'devise'
-
-# Use Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
