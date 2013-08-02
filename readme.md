@@ -1,6 +1,6 @@
 # ember-rails4-starter-kit
 
-[![Dependency Status](https://gemnasium.com/heartsentwined/ember-auth-rails-demo.png)](https://gemnasium.com/heartsentwined/ember-auth-rails-demo)
+[![Dependency Status](https://gemnasium.com/amaanr/ember-rails4-starter-kit.png)](https://gemnasium.com/amaanr/ember-rails4-starter-kit)
 
 This starter kit was intended to bootstrap user authentication using Ember.js Devise. It will create an app using rails4 + devise + ember-auth + ember.js + bootstrap3.
 The demo can be seen live at [heroku](http://emberrails4starterkit.herokuapp.com/),
