@@ -1,0 +1,5 @@
+{{#if App.Auth.signedIn}}
+	{{view App.AuthSignOutView}}
+{{else}}
+	{{view App.AuthSignInView}}
+{{/if}}

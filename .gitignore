@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore all stylesheet and js ds_store
+/app/assets/javascripts/.DS_Store
+/app/assets/stylesheets/.DS_Store
+/vendor/assets/javascripts/.DS_Store
+/vendor/assets/stylesheets/.DS_Store
