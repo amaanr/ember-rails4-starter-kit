@@ -1,0 +1,5 @@
+<ul>
+	{{#each controller}}
+		<li>{{#linkTo "users.show" this}}{{email}}{{/linkTo}}</li>
+	{{/each}}
+</ul>
