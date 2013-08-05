@@ -7,9 +7,16 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
-    return missing_params unless params[:email] && params[:password]
+    unless (params[:email] && params[:password]) || (params[:remember_token])
+      return missing_params
+    end
 
-    resource = resource_from_credentials
+    # build_resource
+    resource = if params[:remember_token]
+                 resource_from_remember_token
+               else
+                 resource_from_credentials
+               end
     return invalid_credentials unless resource
 
     # resource.ensure_authentication_token!
@@ -17,20 +24,21 @@ class SessionsController < Devise::SessionsController
       user_id: resource.id,
       # auth_token: resource.authentication_token,
     }
+    if params[:remember]
+      resource.remember_me!
+      data[:remember_token] = remember_token(resource)
+    end
     render json: data, status: 201
   end
 
   def destroy
-    redirect_path = after_sign_out_path_for(resource_name)
-    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    set_flash_message :notice, :signed_out if signed_out && is_navigational_format?
+    return missing_params unless params[:auth_token]
 
-    # We actually need to hardcode this as Rails default responder doesn't
-    # support returning empty response on GET request
-    respond_to do |format|
-      format.all { head :no_content }
-      format.any(*navigational_formats) { redirect_to redirect_path }
-    end
+    resource = resource_class.find_by_authentication_token(params[:auth_token])
+    return invalid_credentials unless resource
+
+    resource.reset_authentication_token!
+    render json: {user_id: resource.id}, status: 200
   end
 
   protected
@@ -43,6 +51,17 @@ class SessionsController < Devise::SessionsController
   def invalid_credentials
     warden.custom_failure!
     render json: {}, status: 401
+  end
+
+  def remember_token(resource)
+    data = resource_class.serialize_into_cookie(resource)
+    "#{data.first.first}-#{data.last}"
+  end
+
+  def resource_from_remember_token
+    token = params[:remember_token]
+    id, identifier = token.split('-')
+    resource_class.serialize_from_cookie(id, identifier)
   end
 
   def resource_from_credentials
